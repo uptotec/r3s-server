@@ -5,6 +5,7 @@ import http from 'http';
 import { WebSocketServer } from 'ws';
 
 import recordReading from './controllers/recordReading.js';
+import getReadings from './controllers/getReadings.js';
 
 const app = express();
 const server = http.createServer(app);
@@ -23,6 +24,7 @@ wss.on('connection', function connection(ws) {
 app.use(cors({ credentials: true }));
 
 app.get('/recordReading', recordReading);
+app.get('/getReadings', getReadings);
 
 mongoose.set('strictQuery', true);
 

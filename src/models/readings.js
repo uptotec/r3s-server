@@ -11,14 +11,14 @@ export const reading = new Schema(
     growthRate: {
       type: Number,
       default: function () {
-        return this.temp * 2;
+        return -0.48 * this.temp + 22;
       },
     },
 
     leafArea: {
       type: Number,
       default: function () {
-        return this.salinity * 4;
+        return -0.0091 * this.salinity + 2.1;
       },
     },
   },
