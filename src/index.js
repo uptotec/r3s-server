@@ -34,7 +34,7 @@ const mongoDB =
 mongoose
   .connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-    const port = process.env.PORT || 4000;
+    const port = process.env.PORT || 8080;
     server.listen(port, () => {
       console.log(`server started at http://localhost:${port}`);
     });
