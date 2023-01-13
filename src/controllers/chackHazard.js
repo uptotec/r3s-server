@@ -15,7 +15,7 @@ const transporter = nodemailer.createTransport({
 
 const growthWarningMailData = (range) => ({
   from: 'technograss@zohomail.com', // sender address
-  to: 'mahmoudashraf11179@gmail.com', // list of receivers
+  to: 'rovan.1620527@stemredsea.moe.edu.eg,Zahwa.1620531@stemredsea.moe.edu.eg,omnia.1620506@stemredsea.moe.edu.eg', // list of receivers
   subject: 'DANGER ZONE WARNING',
   html: `<b>WARNING!</b>
          <br>The temperature has been in the ${range[0]} – ${range[1]}-degree range for the last five days. If it lasted for another 9 - 14 days, the grass will grow at a slower rate of ${range[2]} – ${range[3]} mm per week.<br/>`,
@@ -23,7 +23,7 @@ const growthWarningMailData = (range) => ({
 
 const areaWarningMailData = (range) => ({
   from: 'technograss@zohomail.com', // sender address
-  to: 'mahmoudashraf11179@gmail.com', // list of receivers
+  to: 'rovan.1620527@stemredsea.moe.edu.eg,Zahwa.1620531@stemredsea.moe.edu.eg,omnia.1620506@stemredsea.moe.edu.eg', // list of receivers
   subject: 'DANGER ZONE WARNING',
   html: `<b>WARNING!</b>
          <br>Salinity is above ${range[0]} (ppt, psu). If the salinity continued for 21- 30 days, the leaf area will decrease to ${range[2]} cm^2.<br/>`,
@@ -47,7 +47,7 @@ const checkHazard = async () => {
   let count = 0;
   // cheking for growth rate warning
   readings.forEach((reading) => {
-    if (reading.growthRate < 11) count++;
+    if (reading.growthRate < 10.5) count++;
   });
 
   console.log(count);
@@ -109,7 +109,7 @@ const checkHazard = async () => {
       days: [startDate, today],
     }).save();
 
-    // await transporter.sendMail(areaWarningMailData(warning.range));
+    await transporter.sendMail(areaWarningMailData(warning.range));
   }
 };
 
