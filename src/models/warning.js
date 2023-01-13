@@ -15,6 +15,8 @@ export const warning = new Schema(
       type: Boolean,
       default: false,
     },
+
+    days: [Date],
   },
   { timestamps: true }
 );

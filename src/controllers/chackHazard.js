@@ -71,6 +71,7 @@ const checkHazard = async () => {
     const warning = await new Warning({
       type: 't',
       range: [...rangeTemp, ...rangeGrowth],
+      days: [startDate, today],
     }).save();
 
     await transporter.sendMail(growthWarningMailData(warning.range));
@@ -105,9 +106,10 @@ const checkHazard = async () => {
     const warning = await new Warning({
       type: 's',
       range: [...rangeSalinity, ...rangeArea],
+      days: [startDate, today],
     }).save();
 
-    await transporter.sendMail(areaWarningMailData(warning.range));
+    // await transporter.sendMail(areaWarningMailData(warning.range));
   }
 };
 
